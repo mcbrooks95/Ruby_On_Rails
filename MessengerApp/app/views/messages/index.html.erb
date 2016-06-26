@@ -2,7 +2,7 @@
     <div class="message">
 	<p><%= m.content %></p>
 	<p><%= m.created_at %></p>
-	<%= button_to "Delete", :method=> "delete" %>
+	<%= link_to 'Message', ("/messages/%d" % m[:id]) %>
 	<%= link_to 'New Message', "messages/new" %>
     </div>
 <% end %>
