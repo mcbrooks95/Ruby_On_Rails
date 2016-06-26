@@ -4,16 +4,25 @@ class MessagesController < ApplicationController
     end
 
     def new
-	@message = Message.new
+	   @message = Message.new
     end
 
     def create 
-  	@message = Message.new(message_params) 
-	if @message.save 
+  	    @message = Message.new(message_params) 
+	    if @message.save 
             redirect_to '/messages' 
-  	else 
-    	render 'new' 
+  	    else 
+    	    render 'new' 
         end 
+    end
+
+
+    def destroy
+        @message = Message.find(params[:id]).destroy
+    end
+
+    def show
+        @message = Message.find(params[:id])
     end
 
     private 
