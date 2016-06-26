@@ -1,0 +1,7 @@
+<% @messages.each do |m| %>
+    <div class="message">
+	<p><%= m.content %></p>
+	<p><%= m.created_at %></p>
+	<%= link_to 'New Message', "messages/new" %>
+    </div>
+<% end %>
