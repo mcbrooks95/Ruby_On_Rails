@@ -17,6 +17,7 @@ class MessagesController < ApplicationController
     end
 
 
+
     def destroy
         @message = Message.find(params[:id])
         @message.destroy
@@ -25,6 +26,8 @@ class MessagesController < ApplicationController
 
     def show
         @message = Message.find(params[:id])
+	@responses = @message.responses
+	#@responses = Response.find_by message_id: params[:id]
     end
 
     private 
