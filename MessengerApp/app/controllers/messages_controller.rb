@@ -26,8 +26,9 @@ class MessagesController < ApplicationController
 
     def show
         @message = Message.find(params[:id])
-	@responses = @message.responses
-	#@responses = Response.find_by message_id: params[:id]
+	    @responses = @message.responses
+        #@response = Response.new
+	    #@responses = Response.find_by message_id: params[:id]
     end
 
     private 

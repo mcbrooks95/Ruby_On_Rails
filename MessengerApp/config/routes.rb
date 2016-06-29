@@ -3,8 +3,13 @@ Rails.application.routes.draw do
     get '/messages/new' => 'messages#new'
     post '/messages' => 'messages#create'
     get '/messages/:id' => 'messages#show', as: :message
+    get '/messages/new/Response' => 'responses#new', as: :responses
+
+    post '/messages/new/Response' => 'responses#create'
     
-    post '/messages/:id' => 'messages#destroy'
+    delete '/messages/:id' => 'messages#destroy'
+    #post '/messages/:id' => 'messages#destroy'
+    #post '/messages/:id' => 'messages#reply'
     
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

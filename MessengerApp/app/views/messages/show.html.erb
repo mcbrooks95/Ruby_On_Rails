@@ -1,3 +1,11 @@
 <%= @message.content %>
-<%= button_to "Delete", :method=> "delete" %>
+<% @responses.each do |r| %>
+    <%= r.content %>
+<% end %>
+
+<%= link_to "Delete", @message, :confirm => "Are you sure?", :method => :delete %>
+
+
+
+
 

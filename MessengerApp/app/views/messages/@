@@ -1,0 +1,7 @@
+<%= @message.content %>
+<%= @responses.each do |r| %>
+    <%= r.content %>
+<% end %>
+
+<%= button_to "Delete", :method=> "delete" %>
+
