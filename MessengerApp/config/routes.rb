@@ -3,9 +3,9 @@ Rails.application.routes.draw do
     get '/messages/new' => 'messages#new'
     post '/messages' => 'messages#create'
     get '/messages/:id' => 'messages#show', as: :message
-    get '/messages/new/Response' => 'responses#new', as: :responses
+    get '/messages/:id/new/Response' => 'responses#new', as: :responses
 
-    post '/messages/new/Response' => 'responses#create'
+    post '/messages/:id/new/Response' => 'responses#create'
     
     delete '/messages/:id' => 'messages#destroy'
     #post '/messages/:id' => 'messages#destroy'
