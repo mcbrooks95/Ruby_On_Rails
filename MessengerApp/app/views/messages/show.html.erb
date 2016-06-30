@@ -1,10 +1,14 @@
-<%= @message.content %>
+
+<h1>Message</h1>
+<%= @message.content %><br><br>
+<%= link_to "Delete", @message, :confirm => "Are you sure?", :method => :delete %>
+<h3>Responses</h3>
 <% @responses.each do |r| %>
-    <%= r.content %>
+    <%= r.content %><br>
 <% end %>
 
-<%= link_to "Delete", @message, :confirm => "Are you sure?", :method => :delete %>
 
+<%= link_to "Create Response", @link %>
 
 
 

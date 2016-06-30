@@ -27,6 +27,8 @@ class MessagesController < ApplicationController
     def show
         @message = Message.find(params[:id])
 	    @responses = @message.responses
+        @id = params[:id]
+        @link = "/messages/" + @id + "/new/Response"
         #@response = Response.new
 	    #@responses = Response.find_by message_id: params[:id]
     end
