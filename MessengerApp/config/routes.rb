@@ -8,6 +8,17 @@ Rails.application.routes.draw do
     post '/messages/:id/new/Response' => 'responses#create'
     
     delete '/messages/:id' => 'messages#destroy'
+
+    post '/login' => 'sessions#create'
+
+    get '/login' => 'sessions#new'
+
+    delete 'logout' => 'sessions#destroy'
+
+    get '/signup' => 'users#new'
+    #post '/signup' => 'users#create'
+    resources :users
+
     #post '/messages/:id' => 'messages#destroy'
     #post '/messages/:id' => 'messages#reply'
     
