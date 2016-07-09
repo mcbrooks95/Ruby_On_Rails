@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-    get '/messages' => 'messages#index'
+    #get '/messages' => 'messages#index'
+    #root 'messages#index'
+    root 'messages#home'
     get '/messages/new' => 'messages#new'
     post '/messages' => 'messages#create'
     get '/messages/:id' => 'messages#show', as: :message
