@@ -4,7 +4,12 @@ class MessagesController < ApplicationController
     end
 
     def index
-        @messages = Message.all
+        #binding.pry
+        if(session[:user_id] == nil)
+            redirect_to '/'
+        else
+            @messages = Message.all
+        end
     end
 
     def new
