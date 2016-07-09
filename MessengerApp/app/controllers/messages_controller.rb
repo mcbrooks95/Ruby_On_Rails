@@ -1,6 +1,9 @@
 class MessagesController < ApplicationController
 
     def home
+        if(session[:user_id] != nil)
+            redirect_to '/messages'
+        end
     end
 
     def index
@@ -9,6 +12,8 @@ class MessagesController < ApplicationController
             redirect_to '/'
         else
             @messages = Message.all
+            #@user = User.find(@messages[0][:user_id])
+
         end
     end
 
@@ -17,7 +22,8 @@ class MessagesController < ApplicationController
     end
 
     def create 
-  	    @message = Message.new(message_params) 
+  	    @message = Message.new(message_params)
+        @message.user_id = session[:user_id] 
 	    if @message.save 
             redirect_to '/messages' 
   	    else 
@@ -44,6 +50,6 @@ class MessagesController < ApplicationController
 
     private 
         def message_params 
-    	    params.require(:message).permit(:content) 
+    	    params.require(:message).permit(:content, :user_id) 
     	end
 end

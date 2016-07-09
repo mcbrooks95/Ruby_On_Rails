@@ -5,14 +5,22 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-message1 = Message.create(content: "Hey everyone! How's it going?")
 
-message2 = Message.create(content: "its going great!!!!")
-message3 = Message.create(content: "its going grsdfdseat!!!!")
-message4 = Message.create(content: "its going greadsfsdt!!!!")
-message5 = Message.create(content: "its going sdfdgreat!!!!")
-message6 = Message.create(content: "its godfsding great!!!!")
-message7 = Message.create(content: "its gaoing great!!!!")
+user27 = User.create(first_name: "Bob", last_name: "Smith", email: "bsmith@email.com", password_digest: "asdf")
+
+
+message1 = Message.create(content: "Hey everyone! How's it going?", user_id: user27.id)
+
+message2 = Message.create(content: "its going great!!!!", user_id: user27.id)
+message3 = Message.create(content: "its going grsdfdseat!!!!", user_id: user27.id)
+message4 = Message.create(content: "its going greadsfsdt!!!!", user_id: user27.id)
+message5 = Message.create(content: "its going sdfdgreat!!!!", user_id: user27.id)
+message6 = Message.create(content: "its godfsding great!!!!", user_id: user27.id)
+message7 = Message.create(content: "its gaoing great!!!!", user_id: user27.id)
+
+#user27 = User.create(first_name: "Bob", last_name: "Smith", email: "bsmith@email.com", password_digest: "asdf")
+
+
 
 Response.create(content: "hey", message_id: message1.id)
 Response.create(content: "heasdfdsay", message_id: message1.id)
