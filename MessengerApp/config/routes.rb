@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
     delete 'logout' => 'sessions#destroy'
 
-    get '/signup' => 'users#new'
+    get '/signup' => 'users#new', as: :signup
     #post '/signup' => 'users#create'
     resources :users
 
