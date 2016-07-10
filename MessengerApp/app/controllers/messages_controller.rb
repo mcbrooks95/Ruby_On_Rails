@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
         if(session[:user_id] == nil)
             redirect_to '/'
         else
-            @messages = Message.all
+            @messages = Message.order("created_at DESC")
             #@user = User.find(@messages[0][:user_id])
 
         end
