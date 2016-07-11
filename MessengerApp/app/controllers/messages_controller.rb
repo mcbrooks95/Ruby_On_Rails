@@ -40,8 +40,10 @@ class MessagesController < ApplicationController
     end
 
     def show
+        #binding.pry
         @message = Message.find(params[:id])
 	    @responses = @message.responses
+        @user = User.find(@message.user_id)
         @id = params[:id]
         @link = "/messages/" + @id + "/new/Response"
         #@response = Response.new
