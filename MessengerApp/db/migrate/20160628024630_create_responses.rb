@@ -3,6 +3,7 @@ class CreateResponses < ActiveRecord::Migration
     create_table :responses do |t|
       t.string :content
       t.references :message 
+      t.references :user
       t.timestamps
     end
   end

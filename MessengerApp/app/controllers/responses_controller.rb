@@ -4,7 +4,7 @@ class ResponsesController < ApplicationController
 		#binding.pry		
 		#@response = Response.new(params[:responses]) 
 		@response = Response.new(:content => params[:response]["content"],
-			:message_id => params[:id])
+			:message_id => params[:id], :user_id => session[:user_id])
 	    #logger.debug
 	    #logger.info
 	    if @response.save 
