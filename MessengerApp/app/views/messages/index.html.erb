@@ -1,11 +1,15 @@
+<%= link_to 'Create New Message', "messages/new" %>
+
 <% @messages.each do |m| %>
     <div class="message">
 	<p><%= m.content %></p>
 	<p>Created by: <%= User.find(m.user_id).first_name %></p>
 	<p><%= m.created_at %></p>
-	<%= link_to 'Message', ("/messages/%d" % m[:id]) %>
-	<%= link_to 'New Message', "messages/new" %>
+	<%= link_to 'View Message', ("/messages/%d" % m[:id]) %>
+	
 	<br><br>
     </div>
     
 <% end %>
+
+

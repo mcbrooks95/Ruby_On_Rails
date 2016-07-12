@@ -35,6 +35,13 @@ class MessagesController < ApplicationController
 
     def destroy
         @message = Message.find(params[:id])
+
+        #:all, :conditions => { :friends => ["Bob", "Steve", "Fred"] }
+        #binding.pry
+        @responses = Response.where(user_id: @message.user_id)
+        @responses.each do |r|
+            r.destroy
+        end
         @message.destroy
         redirect_to messages_path
     end
