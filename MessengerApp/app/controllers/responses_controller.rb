@@ -19,7 +19,16 @@ class ResponsesController < ApplicationController
 		@response = Response.new
 	end
 
+	def show
+		#binding.pry
+	end
 
+	def destroy
+		#binding.pry
+		@response = Response.find(params[:id])
+		@response.destroy
+		redirect_to '/messages'
+	end
 
 
 

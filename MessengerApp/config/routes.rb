@@ -8,6 +8,13 @@ Rails.application.routes.draw do
     get '/messages/:id' => 'messages#show', as: :message
     get '/messages/:id/new/Response' => 'responses#new', as: :responses
 
+
+    get '/messages/:message_id/Response/:id' => 'responses#show'
+
+    delete '/messages/:message_id/Response/:id' => 'responses#destroy'
+
+
+
     post '/messages/:id/new/Response' => 'responses#create'
     
     delete '/messages/:id' => 'messages#destroy'

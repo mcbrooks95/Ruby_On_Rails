@@ -14,7 +14,9 @@
 <% @responses.each do |r| %>
     <%= r.content %>
     <h4>created by: </h4>
-    <%= r.user_id ? User.find(r.user_id).first_name : "no one" %><br><br><br>
+    <%= r.user_id ? User.find(r.user_id).first_name : "no one" %>
+    <%= link_to "edit response", "/messages/" + @id.to_s + "/Response/" + r.id.to_s %>
+    <br><br><br>
     
 <% end %>
 
