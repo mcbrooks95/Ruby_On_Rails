@@ -57,6 +57,20 @@ class MessagesController < ApplicationController
 	    #@responses = Response.find_by message_id: params[:id]
     end
 
+    def edit
+        #binding.pry
+        @message = Message.find(params[:id])        
+    end
+
+    def update
+        #binding.pry
+        @message = Message.find(params["id"])
+        @message.content = params["message"]["content"]
+        #@message.touch
+        @message.save
+        redirect_to "/messages"
+    end
+
     private 
         def message_params 
     	    params.require(:message).permit(:content, :user_id) 

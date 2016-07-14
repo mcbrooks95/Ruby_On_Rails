@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     post '/messages' => 'messages#create'
     get '/messages/:id' => 'messages#show', as: :message
     get '/messages/:id/new/Response' => 'responses#new', as: :responses
+    get '/messages/:id/edit' => 'messages#edit'
+
+    patch '/messages/:id' => 'messages#update'
 
 
     get '/messages/:message_id/Response/:id' => 'responses#show'

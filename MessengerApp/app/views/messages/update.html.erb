@@ -1,0 +1,5 @@
+<%= form_for (@message) do |f| %>
+    <%= f.label :message %>
+    <%= f.text_area :content %>
+    <%= f.submit "create" %>
+<% end %>
