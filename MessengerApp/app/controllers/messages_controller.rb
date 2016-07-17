@@ -1,27 +1,24 @@
 class MessagesController < ApplicationController
 
     def home
-        if(session[:user_id] != nil)
+        if session[:user_id] != nil 
             redirect_to '/messages'
-        end
+        end            
     end
 
     def index
-        #binding.pry
-        if(session[:user_id] == nil)
-            redirect_to '/'
-        else
-            @messages = Message.order("created_at DESC")
-            #@user = User.find(@messages[0][:user_id])
-
-        end
+        signedIn
+        @messages = Message.order("created_at DESC")
+        @user = User.find(@messages[0][:user_id])        
     end
 
     def new
-	   @message = Message.new
+        signedIn
+	    @message = Message.new
     end
 
-    def create 
+    def create
+        signedIn 
   	    @message = Message.new(message_params)
         @message.user_id = session[:user_id] 
 	    if @message.save 
@@ -34,8 +31,8 @@ class MessagesController < ApplicationController
 
 
     def destroy
+        signedIn
         @message = Message.find(params[:id])
-
         #:all, :conditions => { :friends => ["Bob", "Steve", "Fred"] }
         #binding.pry
         @responses = Response.where(user_id: @message.user_id)
@@ -48,6 +45,7 @@ class MessagesController < ApplicationController
 
     def show
         #binding.pry
+        signedIn
         @message = Message.find(params[:id])
 	    @responses = @message.responses
         @user = User.find(@message.user_id)
@@ -59,11 +57,13 @@ class MessagesController < ApplicationController
 
     def edit
         #binding.pry
+        signedIn
         @message = Message.find(params[:id])        
     end
 
     def update
         #binding.pry
+        signedIn
         @message = Message.find(params["id"])
         @message.content = params["message"]["content"]
         #@message.touch
@@ -71,8 +71,17 @@ class MessagesController < ApplicationController
         redirect_to "/messages"
     end
 
+    def signedIn
+        #binding.pry
+        if(session[:user_id] == nil)
+            redirect_to '/'
+        end
+    end
+
     private 
         def message_params 
     	    params.require(:message).permit(:content, :user_id) 
     	end
+        
+
 end
