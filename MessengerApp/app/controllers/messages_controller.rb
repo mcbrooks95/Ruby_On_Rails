@@ -51,6 +51,7 @@ class MessagesController < ApplicationController
         @user = User.find(@message.user_id)
         @id = params[:id]
         @link = "/messages/" + @id + "/new/Response"
+        @session_id = session[:user_id]
         #@response = Response.new
 	    #@responses = Response.find_by message_id: params[:id]
     end

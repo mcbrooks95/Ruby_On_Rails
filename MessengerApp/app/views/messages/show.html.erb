@@ -4,15 +4,19 @@
 <h3>created by<br></h3>
 <%= @user.first_name %>
 <br><br>
+<% if @session_id == @user.id %>
 	<%= link_to "Edit", "/messages/" + @id.to_s + "/edit" %>
 	<%= link_to "Delete", @message, :confirm => "Are you sure?", :method => :delete %>
+<% end %>
 <h3>Responses</h3>
 
 <% @responses.each do |r| %>
     <%= r.content %>
     <h4>created by: </h4>
     <%= r.user_id ? User.find(r.user_id).first_name : "no one" %>
-    <%= link_to "edit response", "/messages/" + @id.to_s + "/Response/" + r.id.to_s %>
+    <% if @session_id === r.user_id %>
+    	<%= link_to "edit response", "/messages/" + @id.to_s + "/Response/" + r.id.to_s %>
+    <% end %>
     <br><br><br>
 <% end %>
 
