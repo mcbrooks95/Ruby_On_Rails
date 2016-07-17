@@ -1,2 +1,9 @@
 <h1>hey its show.html.erb</h1>
-<%= link_to "Delete", @message, :confirm => "Are you sure?", :method => :delete %>
+
+
+<%= form_for (@response) do |f| %>
+   
+    <%= f.text_area :content %>
+    <%= f.submit "create" %>
+<% end %>
+<%= link_to "Delete", @response, :confirm => "Are you sure?", :method => :delete %>

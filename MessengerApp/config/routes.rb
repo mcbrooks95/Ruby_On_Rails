@@ -12,9 +12,11 @@ Rails.application.routes.draw do
     patch '/messages/:id' => 'messages#update'
 
 
-    get '/messages/:message_id/Response/:id' => 'responses#show'
+    get '/messages/:message_id/Response/:id' => 'responses#edit', as: :response
 
     delete '/messages/:message_id/Response/:id' => 'responses#destroy'
+
+    patch '/messages/:message_id/Response/:id' => 'responses#update' 
 
 
 

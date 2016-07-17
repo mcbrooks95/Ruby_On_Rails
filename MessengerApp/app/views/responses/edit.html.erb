@@ -1,0 +1,10 @@
+<h1>hey its edit.html.erb</h1>
+
+
+<%= form_for (@response), url: @response_path do |f| %>   
+    <%= f.text_area :content %>
+    <%= f.submit "create" %>
+<% end %>
+
+<%= link_to "Delete", response_path, :confirm => "Are you sure?", :method => :delete %>
+
